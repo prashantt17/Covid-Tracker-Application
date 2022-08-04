@@ -1,0 +1,5 @@
+Data:
+    GitHub Repo: https://github.com/CSSEGISandData/COVID-19
+    File used for this Project: 
+      File: https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+      Use Raw Data as URL in your code https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv

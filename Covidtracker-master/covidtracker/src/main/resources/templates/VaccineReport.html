@@ -1,0 +1,62 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Covid Tracker Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+
+
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
+
+
+
+
+
+</head>
+
+<body>
+
+	<div></div>
+
+	<table id="example" class="display" style="width: 100%">
+		<thead>
+			<tr>
+				<th>CountryCode</th>
+				<th>Country</th>
+				<th>Province</th>
+				<th>Active</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="locationStat : ${vaccinedata}">
+				<td th:text="${locationStat.CountryCode}">-</td>
+				<td th:text="${locationStat.Country}">-</td>
+				<td th:text="${locationStat.Province}">0</td>
+				<td th:text="${locationStat.Active}">0</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>CountryCode</th>
+				<th>Country</th>
+				<th>Province</th>
+				<th>Active</th>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+
+</html>

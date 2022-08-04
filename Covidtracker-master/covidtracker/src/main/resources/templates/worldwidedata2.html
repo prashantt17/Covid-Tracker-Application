@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Covid Tracker Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--    Bootstrap-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
+<body>
+
+	<div class="container">
+		<br />
+		<h1>
+			<span class="badge badge-secondary">Covid Tracker</span>
+		</h1>
+		<h4>
+			Created by <a href="https://github.com/prashantt17" target="_blank">&copyprashantkumar</a>
+		</h4>
+		<p class="lead">This application keeps track of covid cases across
+			the world</p>
+		<br /> <br />
+		<div class="jumbotron">
+			<h1 class="display-4" th:text="${totalCasesReported}"></h1>
+			<p class="lead" style="margin: 0; display: inline; float: left">Total
+				cases reported as of
+			<p th:text="${timestamp}"
+				style="margin-right: 70%; display: inline; float: right; margin-top: 3px; font-size: large;"></p>
+
+		</div>
+		<br /> <br />
+
+		<div>
+			<table class="table table-striped" id="example">
+				<tr>
+					<th>State</th>
+					<th>Country</th>
+					<th>Total Cases Reported</th>
+					<th>Rise/Fall in number of cases compared to last day</th>
+				</tr>
+				<tr th:each="locationStat : ${locationStats}">
+					<td th:text="${locationStat.state}">-</td>
+					<td th:text="${locationStat.Country}">-</td>
+					<td th:text="${locationStat.latestTotalCase}">0</td>
+					<td th:text="${locationStat.statComparedToPrevDay}">0</td>
+				</tr>
+			</table>
+		</div>
+		<br />
+	</div>
+
+</body>
+
+</html>

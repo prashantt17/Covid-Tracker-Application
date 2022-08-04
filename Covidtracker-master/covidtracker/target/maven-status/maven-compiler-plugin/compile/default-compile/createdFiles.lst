@@ -1,0 +1,6 @@
+com\prashant\CovidTracker19\Controller\HomePageController.class
+com\prashant\CovidTracker19\Controller\VaccineTrackerController.class
+com\prashant\CovidTracker19\CovidtrackerApplication.class
+com\prashant\CovidTracker19\Models\LiveCountryData.class
+com\prashant\CovidTracker19\Services\CovidDataService.class
+com\prashant\CovidTracker19\Models\LocationStats.class

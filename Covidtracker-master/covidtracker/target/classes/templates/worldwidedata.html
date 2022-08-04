@@ -1,0 +1,308 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Covid Tracker Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+
+
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
+
+<style type="text/css">
+@charset "UTF-8";
+
+@import
+	url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	line-height: 1.42em;
+	color: #efebf3;
+	background-color: #172546;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: 300;
+	line-height: 1em;
+	text-align: center;
+	color: #4dc3fa;
+}
+
+h2 {
+	font-size: 1em;
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	line-height: 1em;
+	padding-bottom: 2em;
+	color: #fb667a;
+}
+
+h2 a {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fb667a;
+	text-decoration: none;
+}
+
+.blue {
+	color: #185875;
+}
+
+.yellow {
+	color: #fff842;
+}
+
+.container th h1 {
+	font-weight: bold;
+	font-size: 1em;
+	text-align: left;
+	color: #185875;
+}
+
+.container td {
+	font-weight: normal;
+	font-size: 1em;
+	-webkit-box-shadow: 0 2px 2px -2px #0e1119;
+	-moz-box-shadow: 0 2px 2px -2px #0e1119;
+	box-shadow: 0 2px 2px -2px #0e1119;
+}
+
+.container {
+	text-align: left;
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+	display: table;
+	padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+	padding-bottom: 2%;
+	padding-top: 2%;
+	padding-left: 2%;
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	background-color: #323c50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	background-color: #2c3446;
+}
+
+.container th {
+	background-color: #1f2739;
+}
+
+.container td:first-child {
+	color: #fb667a;
+}
+
+.container tr:hover {
+	background-color: #464a52;
+	-webkit-box-shadow: 0 6px 6px -6px #0e1119;
+	-moz-box-shadow: 0 6px 6px -6px #0e1119;
+	box-shadow: 0 6px 6px -6px #0e1119;
+}
+
+.container td:hover {
+	background-color: #fff842;
+	color: #403e10;
+	font-weight: bold;
+	box-shadow: #7f7c21 -1px 1px, #7f7c21 -2px 2px, #7f7c21 -3px 3px,
+		#7f7c21 -4px 4px, #7f7c21 -5px 5px, #7f7c21 -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
+}
+
+@media ( max-width : 800px) {
+	.container td:nth-child(4), .container th:nth-child(4) {
+		display: none;
+	}
+}
+
+/* CARD CSS */
+.cards-list {
+	z-index: 0;
+	width: 90%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-left: 85px;
+}
+
+.card {
+	margin: 30px auto;
+	width: 300px;
+	height: 180px;
+	border-radius: 40px;
+	box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px
+		rgba(0, 0, 0, 0.22);
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+.card .card_image {
+	width: inherit;
+	height: inherit;
+	border-radius: 40px;
+}
+
+.card .card_image img {
+	width: inherit;
+	height: inherit;
+	border-radius: 40px;
+	object-fit: cover;
+}
+
+.card .card_title {
+	text-align: center;
+	border-radius: 0px 0px 40px 40px;
+	font-family: sans-serif;
+	font-size: 30px;
+	margin-top: -100px;
+	height: 40px;
+}
+
+.card:hover {
+	transform: scale(0.9, 0.9);
+	box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px
+		rgba(0, 0, 0, 0.22);
+}
+
+.title-white {
+	color: white;
+}
+
+.title-black {
+	color: black;
+}
+
+@media all and (max-width: 500px) {
+	.card-list {
+		/* On small screens, we are no longer using row direction but column */
+		flex-direction: column;
+	}
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+
+	<h1>
+		<span class="blue"></span>Covid Tracker<span class="blue"></span>
+	</h1>
+	<h2>
+		Created by <a href="https://github.com/prashantt17" target="_blank">&copyprashantkumar</a>
+	</h2>
+
+	<div class="cards-list">
+
+
+		<div class="card 2">
+			<div class="card_image">
+				<h1 class="display-4"
+					style="color: darkturquoise; font-family: cursive; font-size: revert;"
+					th:text="${covidWorldWideData.TotalConfirmed}"></h1>
+			</div>
+			<div class="card_title title-white">
+				<p
+					style="display: contents; color: burlywood; font-family: 'Open Sans';">Total
+					Confirmed</p>
+			</div>
+		</div>
+
+		<div class="card 2">
+			<div class="card_image">
+				<h1 class="display-4"
+					style="color: darkturquoise; font-family: cursive; font-size: revert;"
+					th:text="${covidWorldWideData.NewConfirmed}"></h1>
+			</div>
+			<div class="card_title title-white">
+				<p
+					style="display: contents; color: burlywood; font-family: 'Open Sans';">New
+					Confirmed</p>
+			</div>
+		</div>
+
+		<div class="card 2">
+			<div class="card_image">
+				<h1 class="display-4"
+					style="color: darkturquoise; font-family: cursive; font-size: revert;"
+					th:text="${covidWorldWideData.TotalDeaths}"></h1>
+			</div>
+			<div class="card_title title-white">
+				<p
+					style="display: contents; color: burlywood; font-family: 'Open Sans';">New
+					Total Deaths</p>
+			</div>
+		</div>
+
+		<div class="card 2">
+			<div class="card_image">
+				<h1 class="display-4"
+					style="color: darkturquoise; font-family: cursive; font-size: revert;"
+					th:text="${covidWorldWideData.NewDeaths}"></h1>
+			</div>
+			<div class="card_title title-white">
+				<p
+					style="display: contents; color: burlywood; font-family: 'Open Sans';">New
+					New Deaths</p>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div>
+		<table class="container">
+			<thead>
+				<tr>
+					<th>COUNTRY-CODE</th>
+					<th>COUNTRY</th>
+					<th>CONFIRMED</th>
+					<th>ACTIVE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					th:each="locationStat : ${covidWorldWideData.covidWorldWideCountryData}">
+					<td th:text="${locationStat.CountryCode}">-</td>
+					<td th:text="${locationStat.Country}">-</td>
+					<td th:text="${locationStat.CountryTotalConfirmed}">0</td>
+					<td th:text="${locationStat.CountryTotalDeaths}">0</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+
+</html>
